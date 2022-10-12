@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.8%;
+}
+html body {
+  background: hsl(230deg, 17%, 14%);
+  color: hsl(0deg, 0%, 100%);
+  font-size: 1.4em;
+  font-family: "Inter", sans-serif;
+}
+
+.light__mode {
+  background: linear-gradient(#f8f9fe, #ffffff);
+  color: #1f222b;
+}
+.light__mode .content .header__title p {
+  color: hsl(228deg, 12%, 44%);
+}
+.light__mode .content .header .toggle-switch::before {
+  background: linear-gradient(#f8f9fe, #ffffff);
+}
+.light__mode .content .header .toggle-label {
+  color: hsl(228deg, 34%, 66%);
+}
+.light__mode .content .followers .card {
+  background: hsl(227deg, 47%, 96%);
+}
+.light__mode .content .followers .card:hover {
+  background: #e1e3f0;
+  cursor: pointer;
+}
+.light__mode .content .followers .card__social span {
+  color: hsl(228deg, 12%, 44%);
+  font-weight: 700;
+}
+.light__mode .content .overview__today {
+  color: hsl(228deg, 12%, 44%);
+}
+.light__mode .content .overview__cards .card__overview {
+  background: hsl(227deg, 47%, 96%);
+}
+.light__mode .content .overview__cards .card__overview:hover {
+  background: #e1e3f0;
+  cursor: pointer;
+}
+.light__mode .content .overview__cards .card__overview .overview__title {
+  color: hsl(228deg, 12%, 44%);
+}
+
+.content {
+  width: 80%;
+  margin: 4rem auto;
+}
+.content .header {
+  width: 100%;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+@media (max-width: 660px) {
+  .content .header {
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+  }
+}
+.content .header__title h2 {
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+.content .header__title p {
+  color: hsl(228deg, 34%, 66%);
+  font-size: 1em;
+  font-weight: 700;
+}
+.content .header .toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+.content .header .toggle-switch {
+  display: inline-block;
+  background: linear-gradient(hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.content .header .toggle-switch::after {
+  content: "";
+}
+.content .header .toggle-switch::before {
+  content: "";
+  display: block;
+  background: #333a56;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.content .header .toggle-switch:hover {
+  background: linear-gradient(hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+  transition: ease 0.5s;
+}
+.content .header .toggle:hover .content .header .toggle-switch:before {
+  background: linear-gradient(hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+}
+.content .header .toggle-checkbox:checked + .content .header .toggle-switch {
+  background: linear-gradient(hsl(210deg, 78%, 56%), hsl(146deg, 68%, 55%));
+}
+.content .header .toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+.content .header .toggle-label {
+  margin: 0 1em;
+  position: relative;
+  top: 2px;
+  font-weight: 700;
+}
+.content .header .toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+.content .followers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.content .followers .card {
+  position: relative;
+  width: 250px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(228deg, 28%, 20%);
+  padding: 1.5em 3em;
+  border-radius: 8px;
+  border-top: 5px solid hsl(208deg, 92%, 53%);
+  overflow: hidden;
+}
+.content .followers .card:hover {
+  background-color: #333a56;
+  cursor: pointer;
+}
+.content .followers .card:nth-child(2) {
+  border-top: 5px solid hsl(203deg, 89%, 53%);
+}
+.content .followers .card__instagram {
+  border-top: 5px solid;
+  border-image: linear-gradient(to right, hsl(37deg, 97%, 70%), hsl(329deg, 70%, 58%)) 10;
+}
+.content .followers .card:nth-child(4) {
+  border-top: 5px solid hsl(348deg, 97%, 39%);
+}
+.content .followers .card__social {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1em;
+  color: hsl(228deg, 34%, 66%);
+  margin-bottom: 30px;
+}
+.content .followers .card__counter {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.content .followers .card__followers {
+  text-transform: uppercase;
+  color: hsl(228deg, 34%, 66%);
+  letter-spacing: 5px;
+  margin-bottom: 28px;
+}
+.content .followers .card__today {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: hsl(163deg, 72%, 41%);
+  font-weight: 700;
+}
+.content .followers .card__today--down {
+  color: hsl(356deg, 69%, 56%);
+}
+.content .overview {
+  margin-top: 4em;
+  width: 100%;
+}
+.content .overview__today {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2em;
+  letter-spacing: 1.5px;
+}
+@media (max-width: 1024px) {
+  .content .overview__today {
+    text-align: center;
+    color: hsl(228deg, 34%, 66%);
+  }
+}
+.content .overview__cards {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.content .overview__cards .card__overview {
+  width: 250px;
+  height: 125px;
+  padding: 30px 26px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  justify-self: flex-end;
+  align-items: center;
+  border-radius: 8px;
+  gap: 25px;
+  background: hsl(228deg, 28%, 20%);
+}
+.content .overview__cards .card__overview:hover {
+  background-color: #333a56;
+  cursor: pointer;
+}
+.content .overview__cards .card__overview img {
+  justify-self: end;
+}
+.content .overview__cards .card__overview .overview__percentege {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: hsl(163deg, 72%, 41%);
+  font-weight: 700;
+}
+.content .overview__cards .card__overview .overview__percentege--down {
+  color: hsl(356deg, 69%, 56%);
+}
+.content .overview__cards .card__overview .overview__title {
+  font-size: 13px;
+  color: hsl(228deg, 34%, 66%);
+  font-weight: 700;
+}
+.content .overview__cards .card__overview .overview__count {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import "variables";
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.8%;
+  body{
+    background: $very-dark-blue-bg;
+    color: $white-text;
+    font-size: 1.4em;
+    font-family: 'Inter', sans-serif;
+  }
+}
+.light__mode{
+  background: $toggleL;
+  color: #1f222b;
+  .content{
+    .header{
+      &__title{
+        p{
+          color: $dark-grayish-blue;
+        }
+      }
+      .toggle{
+        &-switch{
+          &::before{
+            background: $toggleL;
+          }
+        }
+        &-label{
+          color: $desaturated-blue-text;
+        }
+      }
+    }
+    .followers{
+      .card{
+        background: $light-grayish-blue-card;
+        &:hover{
+          background: #e1e3f0;
+          cursor: pointer;
+        }
+        &__social{
+          span{
+            color: $dark-grayish-blue;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+    .overview{
+      &__today{
+        color: $dark-grayish-blue;
+      }
+      &__cards{
+        .card__overview{
+          background: $light-grayish-blue-card;
+          &:hover{
+            background: #e1e3f0;
+            cursor: pointer;
+          }
+          .overview__title{
+            color: $dark-grayish-blue;
+          }
+        }
+      }
+    }
+  }
+}
+.content{
+  width: 80%;
+  margin: 4rem auto;
+  .header{
+    width: 100%;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    @media(max-width:660px){
+      justify-content: center;
+      text-align: center;
+      gap: 30px;
+    }
+    &__title{
+      h2{
+        font-size: 2em;
+        margin-bottom: 1rem;
+      }
+      p{
+        color: $desaturated-blue-text;
+        font-size: 1em;
+        font-weight: 700;
+      }
+    }
+    .toggle {
+      cursor: pointer;
+      display: inline-block;
+      &-switch {
+        display: inline-block;
+        background: $toggleD;
+        border-radius: 16px;
+        width: 58px;
+        height: 32px;
+        position: relative;
+        vertical-align: middle;
+        transition: background 0.25s;
+        &::after{
+          content: '';
+        }
+        &::before{
+          content: '';
+          display: block;
+          background: #333a56;
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          top: 4px;
+          left: 4px;
+          transition: left 0.25s;
+        }
+        &:hover{
+          background: $toggleD;
+          transition: ease .5s;
+        }
+      }
+      &:hover &-switch:before {
+        background: $toggleD;
+      }
+      &-checkbox:checked + &-switch {
+        background: $toggleD;
+      }
+      &-checkbox {
+        position: absolute;
+        visibility: hidden;
+      }
+      &-label {
+        margin: 0 1em;
+        position: relative;
+        top: 2px;
+        font-weight: 700;
+      }
+    }
+    .toggle-checkbox:checked + .toggle-switch:before {
+      left: 30px;
+    }
+  }
+  .followers{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    .card{
+      position: relative;
+      width: 250px;
+      height: 225px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $dark-desaturated-blue-card-bg;
+      padding: 1.5em 3em;
+      border-radius: 8px;
+      border-top: 5px solid $facebook;
+      overflow: hidden;
+      &:hover{
+        background-color: #333a56;
+        cursor: pointer;
+      }
+      &:nth-child(2){
+        border-top: 5px solid $twitter;
+      }
+      &__instagram{
+        border-top: 5px solid;
+        border-image: $instagram 10;
+      }
+      &:nth-child(4){
+        border-top: 5px solid $youTube;
+
+      }
+      &__social{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        font-size: 1em;
+        color: $desaturated-blue-text;
+        margin-bottom: 30px;
+      }
+      &__counter{
+        font-size: 44px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      &__followers{
+        text-transform: uppercase;
+        color: $desaturated-blue-text;
+        letter-spacing: 5px;
+        margin-bottom: 28px;
+      }
+      &__today{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        color: $lime-green;
+        font-weight: 700;
+      }
+      &__today--down{
+        color: $bright-red;
+      }
+    }
+  }
+  .overview{
+    margin-top: 4em;
+    width: 100%;
+    &__today{
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 2em;
+      letter-spacing: 1.5px;
+      @media(max-width:1024px){
+        text-align: center;
+        color: $desaturated-blue-text;
+      }
+    }
+    &__cards{
+      width: 100%;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+      .card__overview{
+        width: 250px;
+        height: 125px;        
+        padding: 30px 26px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        justify-self: flex-end;
+        align-items: center;
+        border-radius: 8px;
+        gap: 25px;
+        background: $dark-desaturated-blue-card-bg;
+        &:hover{
+          background-color: #333a56;
+          cursor: pointer;
+        }
+        img{
+          justify-self: end;
+        }
+        .overview__percentege{
+          justify-self: end;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: $lime-green;
+          font-weight: 700;
+        }
+        .overview__percentege--down{
+          color: $bright-red;
+        }
+        .overview__title{
+          font-size: 13px;
+          color: $desaturated-blue-text;
+          font-weight: 700;
+        }
+        .overview__count{
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
